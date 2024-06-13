@@ -1,0 +1,71 @@
+<mat-toolbar class="toolbar">
+  <div class="toolbar-nav">
+    <a routerLink="/" class="logo-link">
+      <img src="assets/images/logo.svg" alt="logo" />
+    </a>
+    <nav class="nav">
+      <a routerLink="/links" class="link">
+        <mat-icon class="link-icon">link</mat-icon>
+        Ссылки
+      </a>
+      <a routerLink="/contacts" class="link">
+        <mat-icon class="material-icons-outlined">people</mat-icon>
+        Контакты
+      </a>
+      <a routerLink="/tags" class="link">
+        <mat-icon class="tag-icon">tag</mat-icon>
+        Теги
+      </a>
+      <a routerLink="/favorites" class="link">
+        <mat-icon>star</mat-icon>
+        Избранное
+      </a>
+      <a routerLink="/history" class="link">
+        <mat-icon>restore</mat-icon>
+        Посещения
+      </a>
+    </nav>
+    <!-- @if (!isSearchVisible) { } -->
+
+    <app-global-search-input
+      class="global-search"
+      (hideSearch)="handleHideSearch()"
+    ></app-global-search-input>
+    <!-- </div> -->
+    <!-- } @else {
+      <button
+        mat-icon-button
+        class="button search-button"
+        aria-label="Example icon-button with menu icon"
+        (click)="handleSearchButtonClick()"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+      } -->
+    <button
+      mat-icon-button
+      class="button"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
+  <div class="toolbar-profile">
+    <button
+      mat-icon-button
+      class="button notification-button"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon class="material-icons-outlined" matBadge="32">
+        notifications
+      </mat-icon>
+    </button>
+    <button
+      class="avatar-button"
+      mat-icon-button
+      aria-label="Example icon-button with menu icon"
+    >
+      <img class="avatar" src="assets/images/avatar.jpg" alt="avatar" />
+    </button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,66 @@
+@use "@angular/material" as mat;
+
+:host {
+  background-color: #fff;
+  width: 704px;
+  height: 228px;
+  border-radius: 4px;
+  font-family: "Roboto";
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.history {
+  width: 216px;
+  border-right: 1px solid #e1e4e6;
+  padding: 20px 0 8px 0;
+  display: flex;
+  flex-direction: column;
+
+  &-title {
+    color: #7f878c;
+    font-size: 11px;
+    padding: 0 16px;
+    margin: 0;
+  }
+
+  &-list {
+    padding: 6px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #2a3033;
+    font-size: 14px;
+    overflow: auto;
+  }
+}
+
+.form {
+  flex: 1 1 auto;
+  height: 100%;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+
+  &-field {
+    padding: 0 24px;
+    width: 100%;
+
+    @include mat.form-field-density(-2);
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+  padding: 0 24px;
+
+  &-title {
+    padding: 0 24px;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+}

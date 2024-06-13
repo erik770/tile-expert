@@ -1,0 +1,76 @@
+@use "sass:color";
+@import "styles/constants.scss";
+
+:host {
+  display: block;
+}
+
+.toolbar {
+  background-color: $header-background-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(93, 95, 97, 0.2);
+
+  &-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &-profile {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.nav {
+  padding: 0 24px 0 40px;
+  height: 100%;
+  display: flex;
+}
+
+.link-icon {
+  transform: rotate(-45deg);
+}
+.tag-icon {
+  font-style: italic;
+}
+
+.link {
+  color: color.scale(#fff, $alpha: -20%);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 8px;
+  height: 100%;
+  padding: 12px 16px 12px 12px;
+  transition: color ease-in-out 100ms;
+
+  &:hover {
+    color: color.scale(#fff, $alpha: -10%);
+  }
+}
+
+.button {
+  color: #fff;
+}
+
+.global-search {
+  margin-left: 16px;
+}
+
+.notification-button ::ng-deep .mat-badge-content {
+  background-color: #cc1910;
+  border: 1px solid $header-background-color;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+
+  &-button {
+    padding: 4px;
+  }
+}

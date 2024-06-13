@@ -1,0 +1,32 @@
+.input {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  height: 48px;
+  font-size: 14px;
+  width: 704px;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-family: "Roboto";
+}
+
+.input-wrapper {
+  position: relative;
+  height: 48px;
+  // width: 48px;
+  display: flex;
+  align-items: center;
+  min-width: 40px;
+}
+
+.button {
+  color: #fff;
+}
+
+.filters {
+  position: absolute;
+  top: 50px;
+  right: -40px;
+  box-shadow: 0px 8px 16px rgba(93, 95, 97, 0.24);
+}

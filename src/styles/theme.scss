@@ -1,0 +1,65 @@
+@use "@angular/material" as mat;
+
+@font-face {
+  font-weight: 300;
+  font-family: Roboto;
+  font-style: normal;
+  src: url("../assets/fonts/Roboto/Roboto-Light.ttf");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: Roboto;
+  font-style: normal;
+  src: url("../assets/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  src: url("../assets/fonts/Roboto/Roboto-Italic.ttf");
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: Roboto;
+  font-style: normal;
+  src: url("../assets/fonts/Roboto/Roboto-Medium.ttf");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: Roboto;
+  font-style: normal;
+  src: url("../assets/fonts/Roboto/Roboto-Bold.ttf");
+}
+
+@font-face {
+  font-weight: 900;
+  font-family: Roboto;
+  font-style: normal;
+  src: url("../assets/fonts/Roboto/Roboto-Medium.ttf");
+}
+
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+    ),
+    typography: (
+      plain-family: "Roboto",
+      brand-family: "Roboto",
+      bold-weight: 900,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+body {
+  @include mat.all-component-themes($theme);
+  --mat-toolbar-standard-height: 56px;
+  --mat-toolbar-mobile-height: 56px;
+}

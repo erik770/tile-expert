@@ -1,0 +1,37 @@
+<div class="input-wrapper" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  <!-- <div @slideInOutAnimation class="input-wrap"> -->
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="isSearchVisible"
+    [cdkConnectedOverlayOffsetY]="-48"
+    [cdkConnectedOverlayOffsetX]="0"
+    [cdkConnectedOverlayHasBackdrop]="true"
+    [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
+    (backdropClick)="hideSearch()"
+  >
+    <input
+      @slideInOutAnimation
+      matInput
+      placeholder="Поисковый запрос"
+      class="input"
+      type="text"
+      (focus)="showFilters()"
+    />
+    @if (isFiltersVisible) {
+
+    <app-global-search-filters class="filters"></app-global-search-filters>
+    }
+  </ng-template>
+
+  @if (isSearchVisible) { } @else {
+  <button
+    mat-icon-button
+    class="button search-button"
+    aria-label="Example icon-button with menu icon"
+    (click)="showSearch()"
+  >
+    <mat-icon>search</mat-icon>
+  </button>
+  }
+</div>
