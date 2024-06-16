@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "unadesk-test": {
+    "tile-expert-test": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/unadesk-test",
+            "outputPath": "dist/tile-expert-test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -63,10 +63,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "unadesk-test:build:production"
+              "buildTarget": "tile-expert-test:build:production"
             },
             "development": {
-              "buildTarget": "unadesk-test:build:development"
+              "buildTarget": "tile-expert-test:build:development"
             }
           },
           "defaultConfiguration": "development"
