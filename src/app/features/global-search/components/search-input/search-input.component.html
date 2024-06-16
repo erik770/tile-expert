@@ -1,3 +1,5 @@
+@if(vm$ | async; as vm) { @if(!vm.isMobileView) {
+
 <div class="input-wrapper" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
   <!-- <div @slideInOutAnimation class="input-wrap"> -->
   <ng-template
@@ -19,19 +21,41 @@
       (focus)="showFilters()"
     />
     @if (isFiltersVisible) {
-
     <app-global-search-filters class="filters"></app-global-search-filters>
     }
   </ng-template>
 
-  @if (isSearchVisible) { } @else {
+  @if (!isSearchVisible){
+  <ng-container [ngTemplateOutlet]="searchButton"></ng-container>
+  }
+</div>
+}@else {
+<ng-container [ngTemplateOutlet]="searchButton"></ng-container>
+<app-mobile-modal-sheet
+  [(isVisible)]="isSearchVisible"
+  [headerTemplate]="mobileModalHeader"
+>
+  <app-global-search-filters></app-global-search-filters>
+</app-mobile-modal-sheet>
+} }
+
+<ng-template #searchButton>
   <button
     mat-icon-button
     class="button search-button"
-    aria-label="Example icon-button with menu icon"
+    aria-label="global search"
     (click)="showSearch()"
   >
     <mat-icon>search</mat-icon>
   </button>
-  }
-</div>
+</ng-template>
+
+<ng-template #mobileModalHeader>
+  <input
+    matInput
+    placeholder="Поиск"
+    class="mobile-input"
+    type="text"
+    (focus)="showFilters()"
+  />
+</ng-template>

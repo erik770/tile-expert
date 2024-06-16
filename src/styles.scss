@@ -1,4 +1,4 @@
-@import "styles/theme.scss";
+@import "styles/theme";
 
 /* Указываем box sizing */
 *,
@@ -36,9 +36,9 @@ dd {
 
 /* Выставляем основные настройки по-умолчанию для body */
 body {
+  scroll-behavior: smooth;
   min-height: 100vh;
   line-height: 1.5;
-  scroll-behavior: smooth;
   text-rendering: optimizespeed;
 }
 
@@ -74,9 +74,9 @@ select {
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {
+    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
   }
 }

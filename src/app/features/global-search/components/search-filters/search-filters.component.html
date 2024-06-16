@@ -1,4 +1,7 @@
+@if(vm$ | async; as vm) {
 <div class="wrapper">
+  @if (!vm.isMobileView) {
+
   <div class="history">
     <h6 class="history-title">История</h6>
     <ul class="history-list">
@@ -10,23 +13,42 @@
       <li>выпадающий список</li>
     </ul>
   </div>
-  <form class="form">
+  }
+  <form class="form" [formGroup]="form">
     <mat-form-field class="form-field" appearance="outline" floatLabel="always">
       <mat-label>Автор</mat-label>
-      <input matInput class="input" placeholder="Имя или должность" size="s" />
+      <input
+        matInput
+        class="input"
+        placeholder="Имя или должность"
+        size="s"
+        formControlName="author"
+      />
       <mat-icon matSuffix svgIcon=":app-me-icon"></mat-icon>
-      <!-- <mat-icon matSuffix>app-me-icon</mat-icon> -->
     </mat-form-field>
     <div class="checkbox-group">
-      <mat-checkbox>Я участник</mat-checkbox>
-      <mat-checkbox>Строгий поиск</mat-checkbox>
-      <mat-checkbox>В заголовках</mat-checkbox>
+      <mat-checkbox class="custom-checkbox" formControlName="isMember">
+        Я участник
+      </mat-checkbox>
+      <mat-checkbox class="custom-checkbox" formControlName="isStrict">
+        Строгий поиск
+      </mat-checkbox>
+      <mat-checkbox class="custom-checkbox" formControlName="onlyHeaders">
+        В заголовках
+      </mat-checkbox>
     </div>
     <div class="checkbox-group-title">Только</div>
     <div class="checkbox-group">
-      <mat-checkbox>Теги</mat-checkbox>
-      <mat-checkbox>Просьбы</mat-checkbox>
-      <mat-checkbox>Контакты</mat-checkbox>
+      <mat-checkbox class="custom-checkbox" formControlName="onlyTags">
+        Теги
+      </mat-checkbox>
+      <mat-checkbox class="custom-checkbox" formControlName="onlyRequests">
+        Просьбы
+      </mat-checkbox>
+      <mat-checkbox class="custom-checkbox" formControlName="onlyContacts">
+        Контакты
+      </mat-checkbox>
     </div>
   </form>
 </div>
+}

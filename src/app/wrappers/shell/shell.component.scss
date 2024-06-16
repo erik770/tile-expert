@@ -3,18 +3,19 @@
 }
 
 .shell {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .routes {
   display: flex;
   flex: 1 1 auto;
   flex-flow: row nowrap;
+
   min-width: 0;
   height: 100%;
 }

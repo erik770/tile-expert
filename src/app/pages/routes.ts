@@ -9,7 +9,7 @@ export const mainRoutes: Routes = [
     component: ShellWrapperComponent,
     children: [
       {
-        path: 'text-page',
+        path: 'test-page',
         component: TestPageComponent,
       },
     ],

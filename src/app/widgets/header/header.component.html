@@ -1,8 +1,16 @@
+@if(vm$ | async; as vm) {
 <mat-toolbar class="toolbar">
+  @if (vm.isMobileView) {
+  <div class="flex-group">
+    <button mat-icon-button class="button" aria-label="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <ng-container [ngTemplateOutlet]="logo"></ng-container>
+  </div>
+  } @else {
+
   <div class="toolbar-nav">
-    <a routerLink="/" class="logo-link">
-      <img src="assets/images/logo.svg" alt="logo" />
-    </a>
+    <ng-container [ngTemplateOutlet]="logo"></ng-container>
     <nav class="nav">
       <a routerLink="/links" class="link">
         <mat-icon class="link-icon">link</mat-icon>
@@ -25,47 +33,47 @@
         Посещения
       </a>
     </nav>
-    <!-- @if (!isSearchVisible) { } -->
 
-    <app-global-search-input
-      class="global-search"
-      (hideSearch)="handleHideSearch()"
-    ></app-global-search-input>
-    <!-- </div> -->
-    <!-- } @else {
-      <button
-        mat-icon-button
-        class="button search-button"
-        aria-label="Example icon-button with menu icon"
-        (click)="handleSearchButtonClick()"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
-      } -->
-    <button
-      mat-icon-button
-      class="button"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>add_circle</mat-icon>
-    </button>
+    <app-global-search-input class="global-search"></app-global-search-input>
+    <ng-container [ngTemplateOutlet]="addButton"></ng-container>
   </div>
+  }
   <div class="toolbar-profile">
+    @if (vm.isMobileView) {
+    <ng-container [ngTemplateOutlet]="addButton"></ng-container>
+    <button mat-icon-button class="button" aria-label="visit history">
+      <mat-icon>restore</mat-icon>
+    </button>
+    <app-global-search-input></app-global-search-input>
+    }
     <button
       mat-icon-button
       class="button notification-button"
-      aria-label="Example icon-button with menu icon"
+      aria-label="notifications"
     >
-      <mat-icon class="material-icons-outlined" matBadge="32">
+      <mat-icon
+        class="material-icons-outlined"
+        [matBadge]="vm.isMobileView ? null : 32"
+      >
         notifications
       </mat-icon>
     </button>
-    <button
-      class="avatar-button"
-      mat-icon-button
-      aria-label="Example icon-button with menu icon"
-    >
+    @if (!vm.isMobileView) {
+    <button class="avatar-button" mat-icon-button aria-label="profile">
       <img class="avatar" src="assets/images/avatar.jpg" alt="avatar" />
     </button>
+    }
   </div>
 </mat-toolbar>
+}
+
+<ng-template #logo>
+  <a routerLink="/" class="logo-link">
+    <img src="assets/images/logo.svg" alt="logo" />
+  </a>
+</ng-template>
+<ng-template #addButton>
+  <button mat-icon-button class="button" aria-label="add">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</ng-template>

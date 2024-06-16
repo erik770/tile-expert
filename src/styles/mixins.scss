@@ -1,66 +1,35 @@
 // breakpoints
 
-$xxl: 1920px;
-$pre-xxl: 1800px;
-$xl: 1600px;
-$laptop: 1440px;
-$lg: 1280px;
-$md: 800px;
-$sm: 640px;
-$xs: 320px;
+// $desktop-up: 1800px;
+$desktop-down: 1440px;
+$laptop-up: 1439px;
+$laptop-down: 1080px;
+$tablet-up: 1079px;
+$tablet-down: 600px;
+$mobile-up: 599px;
+$mobile-down: 414px;
 
 // breakpoints mixins
-
-@mixin xxl-up {
-  @media (min-width: $xxl) {
+@mixin mobile {
+  @media (min-width: $mobile-down) and (max-width: $mobile-up) {
     @content;
   }
 }
 
-@mixin xxl-down {
-  @media (max-width: $xxl) {
+@mixin tablet {
+  @media (min-width: $tablet-down) and (max-width: $tablet-up) {
     @content;
   }
 }
 
-@mixin pre-xxl-down {
-  @media (max-width: $pre-xxl) {
+@mixin laptop {
+  @media (min-width: $laptop-down) and (max-width: $laptop-up) {
     @content;
   }
 }
 
-@mixin xl-down {
-  @media (max-width: $xl) {
-    @content;
-  }
-}
-
-@mixin laptop-down {
-  @media (max-width: $laptop) {
-    @content;
-  }
-}
-
-@mixin lg-down {
-  @media (max-width: $lg) {
-    @content;
-  }
-}
-
-@mixin md-down {
-  @media (max-width: $md) {
-    @content;
-  }
-}
-
-@mixin sm-down {
-  @media (max-width: $sm) {
-    @content;
-  }
-}
-
-@mixin xs-down {
-  @media (max-width: $xs) {
+@mixin desktop {
+  @media (min-width: $desktop-down) {
     @content;
   }
 }
